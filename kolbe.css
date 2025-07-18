@@ -34,7 +34,7 @@ html, body {
   
   /* Colori testo */
   .text-black {
-    color: var(--black);
+    color: var(--black) !important;
   }
   
   .text-white {
