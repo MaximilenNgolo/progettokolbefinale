@@ -23,7 +23,7 @@ html, body {
   }
 
   .bg-black{
-    background-color: var(--black) ! important;
+    background-color: var(--black) ;
   }
 
   .bg-white {
