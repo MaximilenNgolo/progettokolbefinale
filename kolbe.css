@@ -30,6 +30,20 @@ html, body {
     background-color: var(--red) ;
   }
 
+  #navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: 0.3s;
+  height: 0.3s;
+}
+
+  .logo2{
+    width: 100px;
+    transition: 0.2s;
+  }
+
 
   
   /* Colori testo */
@@ -61,6 +75,98 @@ html, body {
 
    }
 
+   body{
+    background-color: var(--black);
+    color: var(--yellow);
+   }
+
    .navbar{
-    height: 70px;
+    height: 140px;
+    transition: 0.5s;
+   }
+
+
+   /* header */
+
+   .Header{
+    background-image: linear-gradient(rgba(0,0,0),transparent, rgba(0,0,0)) ,url(https://media.istockphoto.com/id/1282788302/it/vettoriale/velocit%C3%A0-dello-spazio-linee-o-raggi-dinamici-astratti-di-starburst-illustrazione.jpg?s=612x612&w=0&k=20&c=DwPMB-0WSXTbR9FmQviGy-mcU2igZAS-DsfCe5pGrpw=);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+   }
+
+
+
+   .btn-custom{
+    color: var(--yellow);
+    background-color: var(--black);
+    border: 2px solid var(--yellow);
+    border-radius: 50px;
+    margin: 0px 15px;
+    padding: 20px 30px;
+    transition: 0.5s;
+   }
+
+   .btn-custom:hover{
+    color: var(--black);
+    background-color: var(--yellow);
+    transform: scale(1.1);
+   }
+   .positioned{
+    position: relative;
+    top: -150px;
+   }
+
+   .col-custom{
+    padding: 10px;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    transition: 0.5s;
+    color: var(--black);
+   }
+
+   .col-custom:hover{
+    transform: scale(1.1);
+    background-color: var(--black) !important;
+    color: var(--red);
+    border: 2px solid var(--red);
+
+   }
+
+
+   /* numeri incrementali */
+
+   .number{
+    font-size: 50px;
+    font-weight: 900;
+   }
+
+
+
+   @media screen and(max-widht: 600px) {
+    
+    .positioned{
+      position: static;
+    }
+   }
+
+
+   /* swiper */
+   .swiper{
+    height: 600px;
+   }
+
+
+   .card-review{
+    height: 250px;
+    width: 500px;
+    border: 2px solid var(--yellow);
+    border-radius: 20px;
+   }
+
+
+   .swiper-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
