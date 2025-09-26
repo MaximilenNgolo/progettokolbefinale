@@ -8,6 +8,7 @@ html, body {
   h1, h2, h3, h4,
   .h1, .h2, .h3, .h4 {
     font-family: 'Orbitron', sans-serif;
+    color: var(--yellow);
   } 
 
 /* Variabili CSS globali */
@@ -35,14 +36,18 @@ html, body {
   top: 0;
   width: 100%;
   z-index: 9999;
-  background-color: 0.3s;
-  height: 0.3s;
+  background-color: var(--black);
+  height: 70px;
 }
 
   .logo2{
     width: 100px;
     transition: 0.2s;
   }
+
+
+
+  
 
 
   
@@ -169,4 +174,44 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+   }
+
+
+
+
+
+   /* pagina degli annunci */
+
+
+   .accordion-item, .accordion-button{
+    background-color: var(--black);
+    color: var(--yellow);
+   }
+
+
+   .accordion-button:not(.collapsed){
+    color: var(--red);
+    background-color: var(--black);
+    box-shadow: none;
+   } 
+
+   
+   .accordion-button, .accordion-item:focus{
+    box-shadow:none;
+   }
+
+   .maxi{
+    box-shadow: none;
+   }
+
+
+   .card-custom{
+    width: 30%;
+    border: 2px solid var(--yellow);
+    border-radius: 20px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
    }
