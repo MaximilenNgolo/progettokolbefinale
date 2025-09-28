@@ -68,41 +68,47 @@ function showCards(Array) {
 };
 showCards(data);
 
+let radioButtons = document.querySelectorAll(`.form-check-input`);
 
-function filterBycategory(categoria){
+function filterBycategory(array){
+    
+    let arrayFromNodelist = Array.from(radioButtons);
+    let button = arrayFromNodelist.find((bottone) => bottone.checked);
+    let categoria = button.id;
+    
+    
+    /* 
+    let categoria = Array.from(radioButtons).find((button)=> button.checked).id; */
     if (categoria != 'All') {
-        let filtered = data.filter((annuncio)=> annuncio.category == categoria)
+        let filtered = array.filter((annuncio)=> annuncio.category == categoria);
+        console.log(categoria);
         
-        showCards(filtered);
+        
+        return filtered;
     }else{
-        showCards(data)
+        return array;
     }
-    
-    
 }
-
-filterBycategory(`Musica`)
-
-
- let radioButtons = document.querySelectorAll(`.form-check-input`);
-
 radioButtons.forEach((button)=>{
     button.addEventListener( `click`, ()=>{
+
+        SetpriceInput(filterBycategory(data));
+    GlobalFiltri();
     
-        filterBycategory(button.id)
-        
+    
+
 
     })
     
-}) 
+});
 
 let priceInput = document.querySelector(`#priceInput`)
 let PriceValue = document.querySelector(`#PriceValue`)
 
 
-function SetpriceInput(){
+function SetpriceInput(array){
 
-    let prices = data.map ((annuncio)=> +annuncio.price);
+    let prices = array.map ((annuncio)=> +annuncio.price);
     prices.sort( (a,b) => a-b);
     let maxPrice = Math.ceil(prices.pop());
     priceInput.max = maxPrice;
@@ -110,33 +116,44 @@ function SetpriceInput(){
     PriceValue.innerHTML = maxPrice;
 }
 
-SetpriceInput()
+SetpriceInput(filterBycategory(data));
 
 
-function filterByPrice(){
-    let filtered = data.filter((annuncio)=> +annuncio.price <= priceInput.value)
-    showCards(filtered)
+function filterByPrice(array){
+    let filtered = array.filter((annuncio)=> +annuncio.price <= priceInput.value);
+        return filtered;
 }
 
 priceInput.addEventListener( `input`,()=>{
     PriceValue.innerHTML = priceInput.value
-    filterByPrice();
+    GlobalFiltri();
 })
 
 // --- Filtre par mot-clé
 let wordInput = document.querySelector("#wordInput");
 
-function filterByWord(parola) {
-    let filtered = data.filter((annuncio) =>
-        annuncio.name.toLowerCase().includes(parola.toLowerCase())
+function filterByWord(array) {
+    let filtered = array.filter((annuncio) =>
+        annuncio.name.toLowerCase().includes(wordInput.value.toLowerCase())      /* al posto word input.value era parola */
     );
-    showCards(filtered);
+    return filtered;
 }
 
 wordInput.addEventListener('input', () => {
-    filterByWord(wordInput.value);
+    GlobalFiltri();
 });
 
+  function GlobalFiltri(){
 
+    let maxim = filterBycategory(data);
+    let kolbe = filterByPrice(maxim);
+    
+    let filteredByWord = filterByWord(kolbe);
+
+    showCards(filteredByWord);
+ 
+  }
+
+  
 
   }); 
