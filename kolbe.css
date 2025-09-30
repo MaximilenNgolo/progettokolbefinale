@@ -215,3 +215,96 @@ html, body {
     justify-content: space-evenly;
     margin-bottom: 20px;
    }
+
+
+
+   /* chi siamo */
+
+
+   .circle{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 3px solid var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+   }
+
+
+   .moved{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 100%;
+    background-color: red;
+    position: absolute;
+    z-index: 2;
+    transition: 0.5s;
+    cursor: pointer;
+
+   }
+
+   .opener{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    border: 2px solid var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    background-color: var(--black);
+    cursor: pointer;
+    transition: 0.5s;
+   }
+
+   .vh-75{
+    height: 75vh;
+
+   }
+
+   .flip-card{
+    height: 400px;
+    width: 250px;
+    transition: 0.5s;
+   }
+
+   .flip-card:hover > .inner {
+    transform: rotateY(180deg);
+}
+
+   .inner{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid var(--yellow);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.5;
+    
+
+   }
+
+   .inner-face{
+    height: 400px;
+    width: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+   }
+
+   .inner-back{
+    height: 400px;
+    width: 250px;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 15px;
+   }
